@@ -1,6 +1,7 @@
 node_modules/
 /typings/
 *.log
+*.tar
 /src/*.js
 npm-debug.log.*
 angulardoc.json

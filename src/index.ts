@@ -26,4 +26,4 @@ export * from './form-element/form-element.component';
   declarations: [FormGeneratorComponent, FormElementComponent],
   exports: [FormGeneratorComponent, FormElementComponent]
 })
-export class FormModule { }
+export class FormGeneratorModule { }

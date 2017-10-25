@@ -1,1 +1,1 @@
-export { FormGeneratorComponent, FormElementComponent } from './src/index';
+export { FormGeneratorModule, FormGeneratorComponent, FormElementComponent } from './src/index';
