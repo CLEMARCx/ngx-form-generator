@@ -3,7 +3,7 @@
   "description": "angular x form generator",
   "main": "./dist/bundles/ngxFormGenerator.umd.min.js",
   "module": "./dist/index.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": {
     "name": "Fabian Locker",
     "email": "fabi@locker.cc"
