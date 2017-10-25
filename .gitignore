@@ -1,0 +1,10 @@
+node_modules/
+/typings/
+*.log
+/src/*.js
+npm-debug.log.*
+angulardoc.json
+*.ngfactory.ts
+*.ngsummary.json
+/dist/
+**/.vscode

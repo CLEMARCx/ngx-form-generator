@@ -1,0 +1,39 @@
+<ng-container [formGroup]="group">
+    <mat-form-field *ngIf="model.type == 'text' || model.type == 'password' || model.type == 'email' || model.type == 'number'">
+        <mat-icon matPrefix *ngIf="model.prefix">{{model.prefix}}</mat-icon>
+        <input type="{{model.type}}" matInput formControlName="{{model.name}}" placeholder="{{model.placeholder}}" [required]="model.required" [autocomplete]="model.autocomplete">
+        <mat-icon class="valid" matSuffix *ngIf="model.suffixValidation && !group.get(model.name).pristine && group.get(model.name).valid">check</mat-icon>
+        <mat-icon class="invalid" matSuffix *ngIf="model.suffixValidation && !group.get(model.name).pristine && !group.get(model.name).valid">clear</mat-icon>
+    </mat-form-field>
+    
+    <mat-form-field class="textarea" *ngIf="model.type == 'textarea'">
+        <mat-icon matPrefix *ngIf="model.prefix">{{model.prefix}}</mat-icon>
+        <textarea matInput formControlName="{{model.name}}" placeholder="{{model.placeholder}}" [required]="model.required" [ngStyle]="calcHeight(model.size, 45)"></textarea>
+        <mat-icon class="valid" matSuffix *ngIf="model.suffixValidation && !group.get(model.name).pristine && group.get(model.name).valid">check</mat-icon>
+        <mat-icon class="invalid" matSuffix *ngIf="model.suffixValidation && !group.get(model.name).pristine && !group.get(model.name).valid">clear</mat-icon>
+    </mat-form-field>
+    
+    <mat-slide-toggle formControlName="{{model.name}}" *ngIf="model.type == 'toggle'">{{model.placeholder}}</mat-slide-toggle>
+  
+    <div *ngIf="model.type == 'slider'">
+      <mat-slider
+        [max]="model.max"
+        [min]="model.min"
+        [step]="model.step"
+        [thumb-label]="true"
+        formControlName="{{model.name}}"
+        >
+      </mat-slider>
+      {{model.placeholder}}
+    </div>
+
+    <mat-form-field *ngIf="model.type == 'select'">
+      <mat-select placeholder="{{model.placeholder}}" formControlName="{{model.name}}" [required]="model.required">
+        <mat-option *ngFor="let item of model.items" [value]="item[model.valueField]">
+          {{item.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>    
+    
+    <button mat-raised-button [disabled]="!group.valid" color="{{model.color}}" *ngIf="model.type == 'button'">{{model.name}}</button> 
+</ng-container>

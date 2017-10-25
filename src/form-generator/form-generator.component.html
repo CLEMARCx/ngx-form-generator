@@ -1,0 +1,9 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" class="generated-form" novalidate>
+    <div class="error" *ngIf="error">
+        <mat-card>
+            {{error}}
+        </mat-card>        
+    </div>
+    <ng-container *ngTemplateOutlet="parentTemplate; context: { $implicit: { blueprint: formBlueprint, group: formGroup } }">
+    </ng-container>
+</form>
